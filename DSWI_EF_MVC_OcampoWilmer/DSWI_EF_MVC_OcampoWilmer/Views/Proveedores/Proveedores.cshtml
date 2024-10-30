@@ -1,0 +1,90 @@
+﻿@model IEnumerable<DSWI_EF_MVC_OcampoWilmer.Models.Proveedor>
+
+@{
+    ViewData["Title"] = "Proveedores";
+}
+
+<h1 class="mb-4 text-center">Proveedores</h1>
+
+<div class="d-flex justify-content-between mb-4">
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Nuevo Proveedor</a>
+    </p>
+
+    <form asp-action="Proveedores" asp-controller="Proveedores" class="form-inline">
+        <div class="input-group">
+            @Html.TextBox("b", "", new { @class = "form-control", placeholder = "Ingrese nombre del Proveedor / Contacto" })
+            <div class="input-group-append">
+                <button class="btn btn-success" type="submit">Buscar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreProveedor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreContacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CargoContacto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fax)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdProveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreProveedor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreContacto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CargoContacto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direccion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombrePais)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fax)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IdProveedor }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IdProveedor }) |
+                    <button class="btn btn-danger btn-eliminar" data-id="@item.IdProveedor">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+﻿@model DSWI_EF_MVC_OcampoWilmer.Models.Proveedor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Proveedor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdProveedor" class="control-label"></label>
+                <input asp-for="IdProveedor" class="form-control" readonly />
+                <span asp-validation-for="IdProveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreProveedor" class="control-label"></label>
+                <input asp-for="NombreProveedor" class="form-control" />
+                <span asp-validation-for="NombreProveedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreContacto" class="control-label"></label>
+                <input asp-for="NombreContacto" class="form-control" />
+                <span asp-validation-for="NombreContacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CargoContacto" class="control-label"></label>
+                <input asp-for="CargoContacto" class="form-control" />
+                <span asp-validation-for="CargoContacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombrePais" class="control-label"></label>
+                <select asp-for="IdPais" asp-items="@ViewBag.paises" class="form-control">
+                    <option value="">Seleccione</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fax" class="control-label"></label>
+                <input asp-for="Fax" class="form-control" />
+                <span asp-validation-for="Fax" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="reset" class="btn btn-success">Limpiar</button>
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Proveedores" class="btn btn-dark">Retornar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @ViewBag.msg
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,6 @@
+@DSWI_EF_API_OcampoWilmer_HostAddress = http://localhost:5103
+
+GET {{DSWI_EF_API_OcampoWilmer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
